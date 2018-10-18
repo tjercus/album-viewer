@@ -1,5 +1,5 @@
 
-const editReducer = (state = initialState, action) => {
+const editReducer = (state = {}, action) => {
   return state;
 };
 
