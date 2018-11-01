@@ -12,7 +12,8 @@ const initialState = {
       name: "Het Eiland Amoras",
       release: "29-12-1945"
     }
-  ]
+  ],
+  isFiltering: false
 };
 
 export default (state = initialState, action) => {
