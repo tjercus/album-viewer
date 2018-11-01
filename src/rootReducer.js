@@ -3,5 +3,6 @@ import listReducer from "./list/listReducer";
 import editReducer from "./edit/editReducer";
 
 export default combineReducers({
-  listReducer, editReducer
+  listReducer,
+  editReducer
 });
