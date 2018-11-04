@@ -2,28 +2,39 @@ import React from "react";
 import { push } from "connected-react-router";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { filterAsync } from "../actions";
+import { doFilter } from "../actions";
 
-const FilterForm = ({ albums, filterAsync, changePage }) => (
-  <div>
-    <input type="text" placeholder="searchword ..." />
-    <p>
-      <button onClick={filterAsync}>Filter Async</button>
-    </p>
-  </div>
-);
+const FilterForm = ({ searchWord, doFilter }) => {
+  let input = null;
+  return (
+    <div>
+      <input
+        ref={node => {
+          input = node;
+        }}
+        type="text"
+        placeholder="searchword ..."
+        name="searchwordfield"
+        value={searchWord}
+      />
+      <p>
+        <button onClick={() => doFilter(input.value)}>Filter Async</button>
+      </p>
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
-  console.log("MSTP", state);
+  console.log("filter MSTP", state);
   return {
-    albums: state.listReducer.albums
+    searchWord: state.listReducer.searchWord
   };
 };
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      filterAsync
+      doFilter
     },
     dispatch
   );

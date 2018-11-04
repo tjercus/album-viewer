@@ -2,18 +2,33 @@ import React from "react";
 import { push } from "connected-react-router";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import FilterForm from "../filters";
 
-const List = ({ albums, changePage }) => (
-  <div>
+const List = ({ albums, isFiltering, changePage }) => (
+  <article>
+    <div style={isFiltering ? { display: "block" } : { display: "none" }}>
+      filtering ...
+    </div>
     <h1>Albums</h1>
-    <ul>{albums.map(album => <li key={album.id}>{album.name}</li>)}</ul>
-  </div>
+    <FilterForm />
+    <ul>
+      {albums.map(album => (
+        <li
+          key={album.id}
+          style={album.display ? { display: "block" } : { display: "none" }}
+        >
+          {album.name}
+        </li>
+      ))}
+    </ul>
+  </article>
 );
 
 const mapStateToProps = state => {
   console.log("MSTP", state);
   return {
-    albums: state.listReducer.albums
+    albums: state.listReducer.albums,
+    isFiltering: state.listReducer.isFiltering
   };
 };
 
