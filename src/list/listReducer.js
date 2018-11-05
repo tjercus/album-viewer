@@ -20,6 +20,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   if (action.type === FILTER_REQUESTED) {
+    console.log("filter requested");
     // action.payload = searchWord
     const nextAlbums = state.albums.map(
       album =>
@@ -28,9 +29,12 @@ export default (state = initialState, action) => {
           : (album.display = false)
     );
 
+    state.albums = nextAlbums;
+
+    console.log("STATE", state);
+
     return {
       ...state,
-      albums: nextAlbums,
       isFiltering: true
     };
   } else if (action.type === FILTERED) {
@@ -39,7 +43,6 @@ export default (state = initialState, action) => {
       isFiltering: false
     };
   } else {
-    console.log("STATE", state);
     return state;
   }
 };
