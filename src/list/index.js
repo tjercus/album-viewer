@@ -25,7 +25,7 @@ const List = ({ albums, isFiltering, changePage }) => (
 );
 
 const mapStateToProps = state => {
-  console.log("MSTP", state);
+  console.log("List MSTP", state);
   return {
     albums: state.listReducer.albums,
     isFiltering: state.listReducer.isFiltering

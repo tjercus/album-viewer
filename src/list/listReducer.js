@@ -20,14 +20,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
   if (action.type === FILTER_REQUESTED) {
-    console.log("filter requested");
+    console.log("ListReducer filter requested");
     // action.payload = searchWord
-    const nextAlbums = state.albums.map(
+    state.albums.map(
       album =>
-        album.name.contains(action.payload)
+        album.name.indexOf(action.payload) !== -1
           ? (album.display = true)
           : (album.display = false)
     );
+    console.log("state after filtering", state);
 
     state.albums = nextAlbums;
 

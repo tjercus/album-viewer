@@ -25,7 +25,7 @@ const FilterForm = ({ searchWord, doFilter }) => {
 };
 
 const mapStateToProps = state => {
-  console.log("filter MSTP", state);
+  console.log("FilterForm MSTP", state);
   return {
     searchWord: state.listReducer.searchWord
   };
