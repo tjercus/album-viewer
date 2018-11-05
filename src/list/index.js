@@ -14,7 +14,7 @@ const List = ({ albums, isFiltering, changePage }) => (
     <ul>
       {albums.map(album => (
         <li
-          key={album.id}
+          key={Math.random()}
           style={album.display ? { display: "block" } : { display: "none" }}
         >
           {album.name}
@@ -25,7 +25,7 @@ const List = ({ albums, isFiltering, changePage }) => (
 );
 
 const mapStateToProps = state => {
-  console.log("MSTP", state);
+  console.log("List MSTP", state);
   return {
     albums: state.listReducer.albums,
     isFiltering: state.listReducer.isFiltering
