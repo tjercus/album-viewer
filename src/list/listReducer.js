@@ -30,6 +30,10 @@ export default (state = initialState, action) => {
     );
     console.log("state after filtering", state);
 
+    state.albums = nextAlbums;
+
+    console.log("STATE", state);
+
     return {
       ...state,
       isFiltering: true
