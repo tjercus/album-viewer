@@ -9,18 +9,20 @@ const List = ({ albums, isFiltering, changePage }) => (
     <div style={isFiltering ? { display: "block" } : { display: "none" }}>
       filtering ...
     </div>
-    <h1>Albums</h1>
-    <FilterForm />
-    <ul>
-      {albums.map(album => (
-        <li
-          key={Math.random()}
-          style={album.display ? { display: "block" } : { display: "none" }}
-        >
-          {album.name}
-        </li>
-      ))}
-    </ul>
+    <section style={isFiltering ? { display: "none" } : { display: "block" }}>
+      <h1>Albums</h1>
+      <FilterForm />
+      <ul>
+        {albums.map(album => (
+          <li
+            key={Math.random()}
+            style={album.display ? { display: "block" } : { display: "none" }}
+          >
+            {album.name}
+          </li>
+        ))}
+      </ul>
+    </section>
   </article>
 );
 
