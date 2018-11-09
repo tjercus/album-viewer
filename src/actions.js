@@ -1,13 +1,14 @@
 import { FILTER_REQUESTED, FILTERED } from "./constants";
 
-export const filterAsync = () => (dispatch) => {
+export const doFilter = searchWord => dispatch => {
   dispatch({
     type: FILTER_REQUESTED,
+    payload: searchWord
   });
 
   return setTimeout(() => {
     dispatch({
-      type: FILTERED,
+      type: FILTERED
     });
-  }, 1000);
+  }, 3000);
 };

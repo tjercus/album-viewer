@@ -11,7 +11,16 @@ const List = ({ albums, isFiltering, changePage }) => (
     </div>
     <h1>Albums</h1>
     <FilterForm />
-    <ul>{albums.map(album => <li key={album.id}>{album.name}</li>)}</ul>
+    <ul>
+      {albums.map(album => (
+        <li
+          key={Math.random()}
+          style={album.display ? { display: "block" } : { display: "none" }}
+        >
+          {album.name}
+        </li>
+      ))}
+    </ul>
   </article>
 );
 
